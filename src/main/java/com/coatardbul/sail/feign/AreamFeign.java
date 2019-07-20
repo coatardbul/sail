@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 //@FeignClient(name = "uap", url = "http://127.0.0.1:8888"configuration = {FeignLogConfig.class})
 @FeignClient(name = "uap", url = "http://192.168.1.187:6001")
-public interface RiverFeign {
+public interface AreamFeign {
 
     /**
      * 资金支付交易推送
