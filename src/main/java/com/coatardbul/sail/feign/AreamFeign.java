@@ -1,6 +1,7 @@
 
 package com.coatardbul.sail.feign;
 
+import com.coatardbul.sail.common.config.FeignLogConfig;
 import com.coatardbul.sail.model.feign.RequestDto;
 import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 //@FeignClient(name = "uap", url = "http://127.0.0.1:8888"configuration = {FeignLogConfig.class})
-@FeignClient(name = "uap", url = "http://192.168.1.187:6001")
+@FeignClient(name = "uap", url = "http://192.168.1.187:6001",configuration = FeignLogConfig.class,fallbackFactory =String.class)
 public interface AreamFeign {
 
     /**
