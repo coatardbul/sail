@@ -8,6 +8,7 @@ import com.coatardbul.sail.model.feign.RequestDto;
 
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 /**
@@ -27,6 +28,12 @@ public class AreamFeignFallback implements FallbackFactory<AreamFeign> {
        return new AreamFeign() {
            @Override
            public String getAream(RequestDto requestDto) {
+               log.error("调用失败", cause);
+               return null;
+           }
+
+           @Override
+           public ResponseEntity<byte[]> downloadFile(String filename) {
                log.error("调用失败", cause);
                return null;
            }

@@ -50,6 +50,16 @@ public class CommonResult<T> {
     }
 
     /**
+     * 失败返回对象
+     * @param data
+     * @param <T>
+     * @return
+     */
+    public static <T> CommonResult<T> failed(T data) {
+        return new CommonResult<T>(ResultCode.FAILED.getCode(), ResultCode.FAILED.getMessage(), data);
+    }
+
+    /**
      * 失败返回结果
      */
     public static <T> CommonResult<T> failed() {
