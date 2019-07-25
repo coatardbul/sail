@@ -9,25 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-//@FeignClient(name = "uap", url = "http://127.0.0.1:8888"configuration = {FeignLogConfig.class})
-@FeignClient(name = "uap", url = "http://192.168.1.187:6001",configuration = FeignLogConfig.class,fallbackFactory =String.class)
+@FeignClient(name = "river", url = "http://127.0.0.1:9000", configuration = FeignLogConfig.class, fallbackFactory = String.class)
 public interface AreamFeign {
 
     /**
-     * 资金支付交易推送
-     *
      * @return
      */
-    // @RequestMapping(value = "uap/Payment/SinglePayQueryResult", method = RequestMethod.POST)
-    @RequestMapping(value = "uap/AccountQuery/AccountQueryNowBalance", method = RequestMethod.POST)
+    @RequestMapping(value = "river/query/getAreamList", method = RequestMethod.POST)
     @Headers("Content-Type: application/json")
-    public String fundPayPush(RequestDto requestDto);
+    public String getAream(RequestDto requestDto);
 
-    /**
-     * 资金划拨交易推送
-     *
-     * @return
-     */
-    @RequestMapping(value = "uap/Payment/SingleUpDown", method = RequestMethod.POST)
-    public String fundAllocationPush(RequestDto requestDto);
+
 }
